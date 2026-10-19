@@ -1,0 +1,228 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B20000000000000000000001 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000002 /* main.swift */; };
+		D437DB6484CC41BB83C2D8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000001 /* AppDelegate.swift */; };
+		E2830D480AF2470188BCE483 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* MainViewController.swift */; };
+		DA3D9CDC7783431CB1E21A3F /* Rename_merged.py in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000004 /* Rename_merged.py */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B20000000000000000000002 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A10000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A10000000000000000000002 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A10000000000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000000000000000000004 /* Rename_merged.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = Rename_merged.py; path = Scripts/Rename_merged.py; sourceTree = "<group>"; };
+		33C7BEE9097443B2A92A3E94 /* RenameTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenameTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D8792A5A7AE46BA98584CF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67B8383D6DE449C097441383 = {
+			isa = PBXGroup;
+			children = (
+				0B7A2E77B80348C2968BFB8B /* RenameTool */,
+				A10000000000000000000004 /* Rename_merged.py */,
+				433A7A3BBD634271808A9286 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		433A7A3BBD634271808A9286 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C7BEE9097443B2A92A3E94 /* RenameTool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B7A2E77B80348C2968BFB8B /* RenameTool */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000001 /* AppDelegate.swift */,
+				B20000000000000000000002 /* main.swift */,
+				A10000000000000000000002 /* MainViewController.swift */,
+				A10000000000000000000003 /* Info.plist */,
+			);
+			path = RenameTool;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95651BE73EE94B1F80C1CC5F /* RenameTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 862E6F0F46554C208A6906CF /* Build configuration list for PBXNativeTarget "RenameTool" */;
+			buildPhases = (
+				7A98F450D8CA472285423750 /* Sources */,
+				8D8792A5A7AE46BA98584CF9 /* Frameworks */,
+				2F82217DA4844A3080133817 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RenameTool;
+			productName = RenameTool;
+			productReference = 33C7BEE9097443B2A92A3E94 /* RenameTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43E023FA57F1402282AF7685 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = AB5D8788A1394621BCCB9168 /* Build configuration list for PBXProject "RenameTool" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 67B8383D6DE449C097441383;
+			productRefGroup = 433A7A3BBD634271808A9286 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95651BE73EE94B1F80C1CC5F /* RenameTool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F82217DA4844A3080133817 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA3D9CDC7783431CB1E21A3F /* Rename_merged.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A98F450D8CA472285423750 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D437DB6484CC41BB83C2D8ED /* AppDelegate.swift in Sources */,
+				B20000000000000000000001 /* main.swift in Sources */,
+				E2830D480AF2470188BCE483 /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7A2FDBE856A847E7B9EF6C91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DYNAMIC_NO_PIC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0407170F99D647FEB1DEF6DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		19A9D334EA964D09B8934741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RenameTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.RenameTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6CBA7EF1191F4D6BA07854C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RenameTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.RenameTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB5D8788A1394621BCCB9168 /* Build configuration list for PBXProject "RenameTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A2FDBE856A847E7B9EF6C91 /* Debug */,
+				0407170F99D647FEB1DEF6DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		862E6F0F46554C208A6906CF /* Build configuration list for PBXNativeTarget "RenameTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19A9D334EA964D09B8934741 /* Debug */,
+				6CBA7EF1191F4D6BA07854C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 43E023FA57F1402282AF7685 /* Project object */;
+}
