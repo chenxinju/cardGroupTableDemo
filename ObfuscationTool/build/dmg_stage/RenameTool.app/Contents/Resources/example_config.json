@@ -1,0 +1,51 @@
+{
+  "project_path": "/path/to/YourApp/YourApp",
+  "maps_dir": "/path/to/YourApp/YourApp/ReleaseMaps",
+  "copyright_header": {
+    "enabled": false,
+    "author_name": "YourName",
+    "scope": "target_folder",
+    "scan_header_lines": 30
+  },
+  "task_defaults": {
+    "only_modify_prefix": false,
+    "rollback_mode": false,
+    "use_mapping_reuse": true,
+    "only_current_level": false
+  },
+  "tasks": [
+    {
+      "name": "Task1-Global",
+      "only_modify_prefix": true,
+      "old_prefixes": [
+        "Old"
+      ],
+      "new_prefixes": [
+        "New"
+      ],
+      "target_folder": "/path/to/YourApp/YourApp/Main"
+    },
+    {
+      "name": "Task2-Module",
+      "target_folder": "/path/to/YourApp/YourApp/Main/Section"
+    }
+  ],
+  "middle_word_groups": [
+    [
+      "Prism",
+      "Forge",
+      "Nexus"
+    ],
+    [
+      "Bus",
+      "Cache",
+      "Chunk"
+    ],
+    [
+      "Async",
+      "Bound",
+      "Dense"
+    ]
+  ],
+  "_comment_middle_word_groups": "Optional. 3 groups of words for full rename (only_modify_prefix=false). Omit to use script default (HeyLens)."
+}

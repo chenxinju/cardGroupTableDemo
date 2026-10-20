@@ -11,6 +11,7 @@
 		D437DB6484CC41BB83C2D8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000001 /* AppDelegate.swift */; };
 		E2830D480AF2470188BCE483 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* MainViewController.swift */; };
 		DA3D9CDC7783431CB1E21A3F /* Rename_merged.py in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000004 /* Rename_merged.py */; };
+		F1A2B3C4D5E6F708192A3B4C /* RenameTool-使用说明.html in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000005 /* RenameTool-使用说明.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A10000000000000000000002 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A10000000000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10000000000000000000004 /* Rename_merged.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = Rename_merged.py; path = Scripts/Rename_merged.py; sourceTree = "<group>"; };
+		A10000000000000000000005 /* RenameTool-使用说明.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "RenameTool-使用说明.html"; sourceTree = "<group>"; };
 		33C7BEE9097443B2A92A3E94 /* RenameTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenameTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -38,6 +40,7 @@
 			children = (
 				0B7A2E77B80348C2968BFB8B /* RenameTool */,
 				A10000000000000000000004 /* Rename_merged.py */,
+				A10000000000000000000005 /* RenameTool-使用说明.html */,
 				433A7A3BBD634271808A9286 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA3D9CDC7783431CB1E21A3F /* Rename_merged.py in Resources */,
+				F1A2B3C4D5E6F708192A3B4C /* RenameTool-使用说明.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

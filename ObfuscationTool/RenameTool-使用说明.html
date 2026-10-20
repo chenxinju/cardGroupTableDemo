@@ -34,15 +34,15 @@
     padding: 1.25rem 1.25rem 3rem;
   }
   header h1 {
-    margin: 0 0 .35rem;
-    font-size: 1.45rem;
+    margin: 0 0 .25rem;
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -.02em;
   }
   header .sub {
     margin: 0 0 1rem;
     color: var(--muted);
-    font-size: .92rem;
+    font-size: .9rem;
   }
   nav.toc {
     position: sticky;
@@ -51,39 +51,33 @@
     display: flex;
     flex-wrap: wrap;
     gap: .4rem .65rem;
-    padding: .65rem .75rem;
-    margin: 0 0 1.25rem;
+    padding: .6rem .75rem;
+    margin: 0 0 1.15rem;
     background: var(--toc-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
     backdrop-filter: blur(8px);
     font-size: .82rem;
   }
-  nav.toc a {
-    color: var(--accent);
-    text-decoration: none;
-  }
+  nav.toc a { color: var(--accent); text-decoration: none; }
   nav.toc a:hover { text-decoration: underline; }
   h2 {
-    margin: 1.75rem 0 .65rem;
-    font-size: 1.12rem;
+    margin: 1.5rem 0 .55rem;
+    font-size: 1.1rem;
     border-bottom: 1px solid var(--border);
-    padding-bottom: .35rem;
+    padding-bottom: .3rem;
   }
-  h3 {
-    margin: 1.1rem 0 .4rem;
-    font-size: .98rem;
-  }
-  p { margin: .45rem 0; }
-  ul, ol { margin: .4rem 0 .6rem; padding-left: 1.3rem; }
-  li { margin: .25rem 0; }
+  h3 { margin: 1rem 0 .35rem; font-size: .96rem; }
+  p { margin: .4rem 0; }
+  ul, ol { margin: .35rem 0 .55rem; padding-left: 1.25rem; }
+  li { margin: .2rem 0; }
   .muted { color: var(--muted); }
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: .85rem 1rem;
-    margin: .65rem 0;
+    padding: .75rem .95rem;
+    margin: .5rem 0;
   }
   .card.ok { background: var(--ok-bg); border-color: #bbf7d0; }
   .card.warn { background: var(--warn-bg); border-color: #fed7aa; }
@@ -93,11 +87,11 @@
     background: var(--accent-soft);
     border-left: 3px solid var(--accent);
     border-radius: 0 8px 8px 0;
-    padding: .55rem .85rem;
-    margin: .55rem 0;
+    padding: .5rem .8rem;
+    margin: .5rem 0;
     font-size: .9rem;
   }
-  .callout code, code, .mono {
+  code, .mono, kbd {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: .86em;
   }
@@ -106,10 +100,16 @@
     padding: .1em .35em;
     border-radius: 4px;
   }
+  kbd {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: .05em .35em;
+  }
   .path {
     display: block;
     margin: .35rem 0;
-    padding: .45rem .6rem;
+    padding: .4rem .55rem;
     background: var(--code-bg);
     border-radius: 6px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -119,13 +119,13 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: .9rem;
-    margin: .5rem 0 .75rem;
+    font-size: .88rem;
+    margin: .45rem 0 .65rem;
     background: var(--card);
   }
   th, td {
     border: 1px solid var(--border);
-    padding: .5rem .6rem;
+    padding: .45rem .55rem;
     text-align: left;
     vertical-align: top;
   }
@@ -136,15 +136,15 @@
   }
   td:first-child {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: .82rem;
+    font-size: .8rem;
     white-space: nowrap;
-    width: 28%;
+    width: 26%;
   }
   .ex {
     display: block;
-    margin-top: .25rem;
+    margin-top: .2rem;
     color: var(--muted);
-    font-size: .84rem;
+    font-size: .82rem;
   }
   .ex b { color: var(--text); font-weight: 600; }
   .flow {
@@ -154,8 +154,8 @@
   }
   .flow li {
     position: relative;
-    padding: .55rem .7rem .55rem 2.4rem;
-    margin: .4rem 0;
+    padding: .5rem .65rem .5rem 2.3rem;
+    margin: .35rem 0;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -164,13 +164,13 @@
     counter-increment: step;
     content: counter(step);
     position: absolute;
-    left: .65rem;
-    top: .55rem;
-    width: 1.35rem;
-    height: 1.35rem;
-    line-height: 1.35rem;
+    left: .6rem;
+    top: .5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    line-height: 1.3rem;
     text-align: center;
-    font-size: .75rem;
+    font-size: .72rem;
     font-weight: 700;
     color: #fff;
     background: var(--accent);
@@ -179,7 +179,7 @@
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: .65rem;
+    gap: .55rem;
   }
   @media (max-width: 560px) {
     .two-col { grid-template-columns: 1fr; }
@@ -187,10 +187,10 @@
   }
   .arrow { color: var(--muted); margin: 0 .25rem; }
   footer {
-    margin-top: 2rem;
-    padding-top: .75rem;
+    margin-top: 1.75rem;
+    padding-top: .65rem;
     border-top: 1px solid var(--border);
-    font-size: .8rem;
+    font-size: .78rem;
     color: var(--muted);
   }
 </style>
@@ -200,225 +200,193 @@
 
 <header>
   <h1>RenameTool — iOS 类名混淆</h1>
-  <p class="sub">一页速查 · 给从没碰过这工具的同事</p>
+  <p class="sub">使用说明</p>
 </header>
 
 <nav class="toc" aria-label="目录">
   <a href="#status">完成度</a>
-  <a href="#what">功能介绍</a>
+  <a href="#what">功能</a>
   <a href="#open">打开</a>
   <a href="#rename">类名规则</a>
   <a href="#fields">字段说明</a>
   <a href="#presets">任务预设</a>
   <a href="#dict">中间词库</a>
-  <a href="#flow">推荐流程</a>
-  <a href="#rollback">回滚</a>
+  <a href="#flow">操作流程</a>
   <a href="#tips">注意</a>
 </nav>
 
 <section id="status">
-  <h2>完成度说明</h2>
-  <div class="card ok">
-    <strong>已可用：</strong>日常「单任务混淆 + 回滚」。
-  </div>
-  <div class="card warn">
-    <strong>未做：</strong>一次勾选连跑多阶段流水线。多阶段请手动分步跑，或用 CLI JSON。
-  </div>
+  <h2>完成度</h2>
+  <div class="card ok"><strong>已可用：</strong>单任务混淆与回滚。</div>
+  <div class="card warn"><strong>未做：</strong>多阶段流水线连跑。多阶段请分步执行，或使用 CLI JSON。</div>
 </section>
 
 <section id="what">
   <h2>功能介绍</h2>
-  <p>RenameTool 是 macOS 图形工具，用来批量改 iOS/macOS 工程里的<strong>类名</strong>（并同步改引用与 pbxproj）。</p>
-  <p>它根据你选的规则生成「旧名 → 新名」映射，写进源码，并把 mapping JSON 存到指定目录，方便以后回滚或复用。</p>
+  <p>macOS 图形工具，批量重命名 iOS/macOS 工程中的类名，并同步更新引用与 <code>pbxproj</code>。按所选规则生成「旧名 → 新名」映射，写入源码，并将 mapping JSON 保存到指定目录，供回滚或复用。</p>
   <div class="two-col">
     <div class="card">
       <strong>仅换前缀</strong>
-      <p class="muted" style="margin:.3rem 0 0;font-size:.9rem">只改类名前缀，中间与后缀不动。适合统一品牌前缀、小范围改名。</p>
+      <p class="muted" style="margin:.25rem 0 0;font-size:.88rem">只改类名前缀。适合统一品牌前缀。</p>
     </div>
     <div class="card">
       <strong>全量随机</strong>
-      <p class="muted" style="margin:.3rem 0 0;font-size:.9rem">前缀 + 随机中间词 + 类型后缀。适合需要强混淆、降低可读性。</p>
+      <p class="muted" style="margin:.25rem 0 0;font-size:.88rem">前缀 + 随机中间词 + 类型后缀。适合强混淆。</p>
     </div>
   </div>
-  <div class="card" style="margin-top:.65rem">
+  <div class="card">
     <strong>回滚</strong>
-    <p class="muted" style="margin:.3rem 0 0;font-size:.9rem">按某次混淆留下的 Mapping JSON，把类名改回去。多步混淆时按<strong>相反顺序</strong>回。</p>
+    <p class="muted" style="margin:.25rem 0 0;font-size:.88rem">按 Mapping JSON 还原类名。多步混淆须按<strong>相反顺序</strong>回滚。</p>
   </div>
 </section>
 
 <section id="open">
   <h2>打开方式</h2>
-  <p>用 Xcode 打开工程，选 scheme <code>RenameTool</code>，按 <kbd>⌘R</kbd> 运行：</p>
-  <code class="path">/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool.xcodeproj</code>
+  <ul>
+    <li><strong>App / DMG：</strong>安装后启动 RenameTool；窗口内点「使用说明」可打开本文档。</li>
+    <li><strong>源码：</strong>用 Xcode 打开 <code>ObfuscationTool/RenameTool.xcodeproj</code>，scheme 选 <code>RenameTool</code>，按 <kbd>⌘R</kbd>。</li>
+  </ul>
 </section>
 
 <section id="rename">
-  <h2>类名怎么变</h2>
+  <h2>类名规则</h2>
   <h3>仅换前缀</h3>
-  <p><code>QIFFooView</code> <span class="arrow">→</span> <code>HRFooView</code>（中间 <code>Foo</code>、后缀 <code>View</code> 不变）</p>
+  <p><code>ABCFooView</code> <span class="arrow">→</span> <code>XYZFooView</code>（中间与后缀不变）</p>
   <h3>全量随机</h3>
-  <p>结构：<code>前缀</code> + <code>随机中间词</code> + <code>类型后缀</code></p>
-  <p>例：<code>VEH</code> + <code>FibronVocalx</code> + <code>ViewModel</code> → <code>VEHFibronVocalxViewModel</code></p>
+  <p><code>前缀</code> + <code>随机中间词</code> + <code>类型后缀</code></p>
+  <p>例：<code>ABC</code> + <code>NovaPulse</code> + <code>ViewModel</code> → <code>ABCNovaPulseViewModel</code></p>
 </section>
 
 <section id="fields">
-  <h2>字段与选项说明</h2>
-  <p class="muted">每个字段：作用 · 示例值 · 填这个的意思。</p>
-
+  <h2>字段与选项</h2>
   <table>
     <thead>
-      <tr><th>字段</th><th>作用 / 示例</th></tr>
+      <tr><th>字段</th><th>说明 / 示例</th></tr>
     </thead>
     <tbody>
       <tr>
         <td>project_path</td>
         <td>
-          源码根目录（通常指到 <code>…/Sources</code>）。
-          <span class="ex"><b>例：</b><code>…/MyApp/Sources</code> — 工具从这里扫 Swift/ObjC 并改文件。</span>
+          源码根目录（通常为 <code>…/Sources</code>）。
+          <span class="ex"><b>例：</b><code>…/MyApp/Sources</code></span>
         </td>
       </tr>
       <tr>
-        <td>maps_dir<br><span class="muted" style="font-family:inherit;font-size:.8rem">Mapping 输出目录</span></td>
+        <td>maps_dir</td>
         <td>
           混淆时<strong>写出</strong> mapping JSON 的目录。
-          <span class="ex"><b>例：</b><code>…/ObfuscationTool/maps</code> — 跑完后这里会出现新的 <code>*.json</code>。</span>
+          <span class="ex"><b>例：</b><code>…/ObfuscationTool/maps</code></span>
         </td>
       </tr>
       <tr>
-        <td>Mapping JSON<br><span class="muted" style="font-family:inherit;font-size:.8rem">回滚 / 复用</span></td>
+        <td>Mapping JSON</td>
         <td>
-          回滚或复用时<strong>读入</strong>的那份 json（不是 maps_dir）。
-          <span class="ex"><b>例：</b><code>…/maps/rename_20261019.json</code> — 指定「按这份映射改回去 / 复用」。</span>
+          回滚 / 复用时<strong>读入</strong>的具体 json（非 maps_dir）。
+          <span class="ex"><b>例：</b><code>…/maps/rename_20261019.json</code></span>
         </td>
       </tr>
       <tr>
-        <td>target_folder<br><span class="muted" style="font-family:inherit;font-size:.8rem">目标子目录</span></td>
+        <td>target_folder</td>
         <td>
-          只混淆该子目录；可空 = 整个 <code>project_path</code>。<strong>回滚不用。</strong>
-          <span class="ex"><b>例：</b><code>Features/Home</code> — 只动 Home 下的类；空着 = 全 Sources。</span>
+          仅混淆该子目录；空 = 整个 <code>project_path</code>。<strong>回滚不用。</strong>
+          <span class="ex"><b>例：</b><code>Features/Home</code></span>
         </td>
       </tr>
       <tr>
         <td>pbxproj</td>
         <td>
-          可空。空则工具会猜 <code>…/AppName.xcodeproj/project.pbxproj</code>。
-          <span class="ex"><b>注意：</b>不要填错成 <code>Sources.xcodeproj</code>。拿不准就留空。</span>
+          可空；空则自动推断 <code>…/AppName.xcodeproj/project.pbxproj</code>。勿误填 <code>Sources.xcodeproj</code>。
         </td>
       </tr>
       <tr>
         <td>任务预设</td>
-        <td>
-          一键切换常见模式（见下节）。
-          <span class="ex"><b>例：</b>选「① 仅换前缀」— 界面切到前缀相关输入，其它置灰。</span>
-        </td>
+        <td>切换常见模式（见下节）。</td>
       </tr>
       <tr>
         <td>旧前缀 / 新前缀</td>
         <td>
-          仅换前缀时填写；各项目不同，预设<strong>不替你填死</strong>。
-          <span class="ex"><b>例：</b>旧 <code>QIF</code>、新 <code>HR</code> — 所有 <code>QIF*</code> 类变成 <code>HR*</code>。</span>
+          仅换前缀时填写；预设不写死具体值。
+          <span class="ex"><b>例：</b>旧 <code>ABC,DEF</code> → 新 <code>XYZ</code></span>
         </td>
       </tr>
       <tr>
         <td>回滚模式</td>
-        <td>
-          勾选后进入回滚；无关输入会置灰。
-          <span class="ex"><b>例：</b>勾上 → 主要填 <code>project_path</code> + Mapping JSON，再跑。</span>
-        </td>
+        <td>勾选后进入回滚；无关项置灰。主要填 <code>project_path</code> + Mapping JSON。</td>
       </tr>
       <tr>
         <td>复用旧 mapping</td>
-        <td>
-          不重新随机，按已有 Mapping JSON 的映射再应用一遍。
-          <span class="ex"><b>例：</b>勾上并选上次的 json — 同一批旧名仍映射到同一批新名。</span>
-        </td>
+        <td>按已有 Mapping JSON 再应用同一映射，不重新随机。</td>
       </tr>
       <tr>
         <td>中间词库 / 词包</td>
-        <td>
-          仅全量模式可用；仅换前缀 / 回滚时置灰。
-          <span class="ex"><b>例：</b>选 <code>Viven</code> — 随机中间词从该词包抽；也可选自定义。</span>
-        </td>
+        <td>仅全量模式可用；仅换前缀 / 回滚时置灰。</td>
       </tr>
       <tr>
         <td>Python / 脚本路径</td>
-        <td>
-          实际执行混淆逻辑的 Python 环境或脚本入口；一般保持默认即可。
-          <span class="ex"><b>例：</b>机器上的 <code>python3</code> 或工程自带脚本路径 — 跑不通时先确认本机有可用 Python。</span>
-        </td>
+        <td>执行混淆的 Python3 或脚本入口；一般保持默认。跑不通时确认本机有可用 <code>python3</code>。</td>
       </tr>
     </tbody>
   </table>
 
   <div class="callout">
-    <strong>常见填法（速记）</strong><br>
-    混淆：<code>project_path</code> = Sources，<code>maps_dir</code> = 放 json 的目录，<code>target_folder</code> 按需，<code>pbxproj</code> 可空。<br>
-    回滚：<code>project_path</code> = 同一 Sources，<strong>Mapping JSON</strong> = 那次写出的文件；不必填 <code>target_folder</code>。
+    <strong>速记</strong><br>
+    混淆：<code>project_path</code> = Sources，<code>maps_dir</code> = json 输出目录，<code>target_folder</code> 按需，<code>pbxproj</code> 可空。<br>
+    回滚：同一 <code>project_path</code> + 对应 <strong>Mapping JSON</strong>；无需 <code>target_folder</code>。
   </div>
 </section>
 
 <section id="presets">
   <h2>任务预设</h2>
   <ul>
-    <li><strong>自定义</strong> — 自己勾选项、填字段。</li>
-    <li><strong>① 仅换前缀</strong> — 自己填旧/新前缀（各项目不同，不写死）。</li>
-    <li><strong>② 全量随机中间词</strong> — 自己填前后缀（常填成相同，表示前缀保留、只随机中间）。</li>
-    <li><strong>③ 同 ②，并自动展开词库面板</strong> — 结果与 ② 相同，只是打开词库 UI。</li>
+    <li><strong>自定义</strong> — 自行勾选与填写。</li>
+    <li><strong>① 仅换前缀</strong> — 自行填旧/新前缀（各项目不同，不写死）。</li>
+    <li><strong>② 全量随机中间词</strong> — 自行填前后缀（常填相同，表示保留前缀、只随机中间）。</li>
+    <li><strong>③ 同 ②，并展开词库面板</strong> — 结果与 ② 相同，仅打开词库 UI。</li>
   </ul>
-  <p class="muted">② 与 ③ 混淆结果一样；③ 方便你边选词包边调。</p>
 </section>
 
 <section id="dict">
   <h2>中间词库</h2>
-  <p>仅<strong>全量模式</strong>可用；仅换前缀 / 回滚时置灰。</p>
-  <p>词包：<code>Viven</code> / <code>HeyLens</code> / <code>frezz</code> / <code>PebbleSeeQ</code> / <strong>自定义</strong>。</p>
+  <p>仅全量模式可用。内置词包为不同英文词风的<strong>可选词表</strong>（词包A / 词包B / 词包C / 词包D），与具体工程无关；也可选<strong>自定义</strong>自行编辑。切换词包只影响随机中间词来源，不会绑定或写入任何项目路径。</p>
 </section>
 
 <section id="flow">
-  <h2>推荐操作流程</h2>
+  <h2>操作流程</h2>
 
-  <h3>第一次混淆（新人按这个走）</h3>
+  <h3>混淆</h3>
   <ol class="flow">
     <li>Xcode 打开 <code>RenameTool.xcodeproj</code>，scheme <code>RenameTool</code>，⌘R。</li>
-    <li><code>project_path</code> 指到要改的工程 <code>…/Sources</code>。</li>
-    <li><code>maps_dir</code> 选一个专门放 mapping 的目录（建议单独文件夹，别和源码混）。</li>
-    <li>需要只动一块代码时填 <code>target_folder</code>；否则留空。 <code>pbxproj</code> 不确定就留空。</li>
-    <li>任务预设选 ①（换前缀）或 ②/③（全量）。填好旧/新前缀，或前后缀 + 词包。</li>
-    <li>跑任务。看窗口下方日志；成功后到 <code>maps_dir</code> 确认新生成的 Mapping JSON，记好路径（回滚要用）。</li>
-    <li>回 Xcode 编译目标工程。若红字：关掉工程再开；不要手动作批量「重新添加」文件。</li>
+    <li><code>project_path</code> 指向目标工程 <code>…/Sources</code>。</li>
+    <li><code>maps_dir</code> 选独立目录存放 mapping（勿与源码混放）。</li>
+    <li>需限定范围时填 <code>target_folder</code>；否则留空。<code>pbxproj</code> 不确定则留空。</li>
+    <li>预设选 ①（换前缀）或 ②/③（全量）；填好前缀或前后缀 + 词包。</li>
+    <li>执行。查看窗口下方日志；确认 <code>maps_dir</code> 中新生成的 Mapping JSON（回滚需用）。</li>
+    <li>回 Xcode 编译目标工程。若报错：关闭工程后重开；勿手动批量重新添加文件。</li>
   </ol>
 
-  <h3>回滚（按相反顺序）</h3>
+  <h3>回滚</h3>
   <ol class="flow">
-    <li>勾选<strong>回滚模式</strong>（无关项会置灰）。</li>
-    <li><code>project_path</code> 指到要恢复的那份 Sources。</li>
-    <li><strong>Mapping JSON</strong> 选对应阶段写出的那份 json（不是 maps_dir 本身）。</li>
-    <li>若曾多步混淆：后生成的 mapping <strong>先</strong>回，再回更早的。</li>
-    <li>跑完后若 Xcode 仍红：关工程再开。工具应已改 pbxproj；仍红再查窗口下方日志。</li>
+    <li>勾选<strong>回滚模式</strong>。</li>
+    <li><code>project_path</code> 指向需恢复的 Sources。</li>
+    <li><strong>Mapping JSON</strong> 选对应阶段写出的文件（非 maps_dir）。</li>
+    <li>多步混淆时：后生成的 mapping <strong>先</strong>回，再回更早的。</li>
+    <li>完成后若 Xcode 仍报错：关工程再开。仍红则查窗口下方日志。</li>
   </ol>
-</section>
-
-<section id="rollback">
-  <h2>回滚要点（再强调）</h2>
-  <ul>
-    <li>回滚读的是 <strong>Mapping JSON</strong> 字段，不是 maps_dir。</li>
-    <li><code>target_folder</code> 回滚时不用。</li>
-    <li>多步必须逆序；顺序反了可能对不上名。</li>
-  </ul>
 </section>
 
 <section id="tips">
-  <h2>常见注意</h2>
+  <h2>注意</h2>
   <ul>
-    <li>前缀因项目而异，预设不替你填具体前缀。</li>
-    <li>mapping JSON 保存在 <code>maps_dir</code>；回滚 / 复用靠 <strong>Mapping JSON</strong> 字段指向具体文件。</li>
-    <li>日志与 Mapping 结果在窗口下方，可拉宽窗口查看。</li>
-    <li>一次连跑多阶段流水线未做：多阶段请分步手动，或 CLI JSON。</li>
+    <li>前缀因项目而异，预设不填具体前缀。</li>
+    <li><code>maps_dir</code> 是写出目录；回滚 / 复用依赖 <strong>Mapping JSON</strong> 指向的具体文件。<code>target_folder</code> 回滚时不用。</li>
+    <li>多步回滚必须逆序，否则映射可能对不上。</li>
+    <li>日志与 Mapping 结果在窗口下方，可拉宽查看。</li>
+    <li>多阶段连跑未实现：请分步手动，或使用 CLI JSON。</li>
   </ul>
 </section>
 
 <footer>
-  RenameTool 使用说明 · 单页速查 · 在浏览器中打开即可
+  RenameTool 使用说明
 </footer>
 
 </div>

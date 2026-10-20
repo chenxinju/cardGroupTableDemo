@@ -1,0 +1,65 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "81d030490ace9e02777494be2921a0b1d4f36e5fd4d3b8b11c031d269b90a965"
+    }
+  ],
+  "containerPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "hostTargetedPlatform" : null,
+      "platform" : "macosx",
+      "sdk" : "macosx26.4",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Products",
+      "derivedDataPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData",
+      "indexDataStoreFolderPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "CODE_SIGN_IDENTITY" : "-",
+          "CODE_SIGNING_ALLOWED" : "NO"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

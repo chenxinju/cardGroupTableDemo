@@ -1,0 +1,26 @@
+{
+  "" : {
+    "const-values" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary.swiftconstvalues",
+    "dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary.d",
+    "diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary.dia",
+    "emit-module-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary-emit-module.dia",
+    "pch" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/RenameTool-primary.swiftdeps"
+  },
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/AppDelegate.swift" : {
+    "index-unit-output-path" : "/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/AppDelegate.o",
+    "llvm-bc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/AppDelegate.bc",
+    "object" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/AppDelegate.o"
+  },
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/MainViewController.swift" : {
+    "index-unit-output-path" : "/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/MainViewController.o",
+    "llvm-bc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/MainViewController.bc",
+    "object" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/MainViewController.o"
+  },
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/main.swift" : {
+    "index-unit-output-path" : "/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/main.o",
+    "llvm-bc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/main.bc",
+    "object" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/x86_64/main.o"
+  }
+}

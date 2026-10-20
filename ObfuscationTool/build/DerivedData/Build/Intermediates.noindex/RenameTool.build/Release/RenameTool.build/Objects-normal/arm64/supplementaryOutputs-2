@@ -1,0 +1,12 @@
+{
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/AppDelegate.swift" : {
+    "abi-baseline-json" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool.abi.json",
+    "const-values" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool-primary.swiftconstvalues",
+    "dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool-primary.d",
+    "diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool-primary.dia",
+    "objc-header" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool-Swift.h",
+    "swiftdoc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool.swiftdoc",
+    "swiftmodule" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool.swiftmodule",
+    "swiftsourceinfo" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Release/RenameTool.build/Objects-normal/arm64/RenameTool.swiftsourceinfo"
+  }
+}

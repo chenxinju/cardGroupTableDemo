@@ -1,0 +1,39 @@
+{
+  "" : {
+    "diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/RenameTool-primary.dia",
+    "emit-module-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/RenameTool-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/RenameTool-primary-emit-module.dia",
+    "pch" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/RenameTool-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/RenameTool-primary.swiftdeps"
+  },
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/AppDelegate.swift" : {
+    "const-values" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/MainViewController.swift" : {
+    "const-values" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.swiftconstvalues",
+    "dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.d",
+    "diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.dia",
+    "index-unit-output-path" : "/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.o",
+    "llvm-bc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.bc",
+    "object" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.o",
+    "swift-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController.swiftdeps",
+    "swiftmodule" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/MainViewController~partial.swiftmodule"
+  },
+  "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/RenameTool/main.swift" : {
+    "const-values" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.swiftconstvalues",
+    "dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.d",
+    "diagnostics" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.dia",
+    "index-unit-output-path" : "/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.o",
+    "llvm-bc" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.bc",
+    "object" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.o",
+    "swift-dependencies" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main.swiftdeps",
+    "swiftmodule" : "/Volumes/D/githubDemo/cardGroupTableDemo/ObfuscationTool/build/DerivedData/Build/Intermediates.noindex/RenameTool.build/Debug/RenameTool.build/Objects-normal/arm64/main~partial.swiftmodule"
+  }
+}

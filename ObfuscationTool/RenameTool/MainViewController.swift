@@ -49,6 +49,7 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
     private let stopButton = NSButton(title: "停止", target: nil, action: nil)
     private let loadMappingButton = NSButton(title: "刷新 Mapping", target: nil, action: nil)
     private let openMapsButton = NSButton(title: "打开 Maps 目录", target: nil, action: nil)
+    private let helpButton = NSButton(title: "使用说明", target: nil, action: nil)
 
     private let progress = NSProgressIndicator()
     private let statusLabel = NSTextField(labelWithString: "就绪")
@@ -68,12 +69,12 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
     private var authorLabel: NSTextField?
     private var scopeLabel: NSTextField?
 
-    // MARK: - Word packs (from Scripts: Viven / HeyLens / frezz / PebbleSeeQ)
+    // MARK: - Word packs (vocabulary styles; not bound to any project)
 
-    private static let wordPackOrder = ["Viven", "HeyLens", "frezz", "PebbleSeeQ", "自定义"]
+    private static let wordPackOrder = ["词包A", "词包B", "词包C", "词包D", "自定义"]
 
     private static let wordPacks: [String: [[String]]] = [
-        "Viven": [
+        "词包A": [
             ["Gyrosa", "Optiqa", "Alloyx", "Facet", "Prismi", "Beaml",
              "Glowra", "Pulvex", "Thermi", "Magniq", "Axial", "Nodrix",
              "Shella", "Cerami", "Silvex", "Flecta", "Morpho", "Curvix",
@@ -90,7 +91,7 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
              "Frameo", "Remind", "Hearon", "Talkon", "Voceon", "Summix",
              "Statix", "Agilix", "Calmra", "Readyx", "Flowra", "Clearo"],
         ],
-        "HeyLens": [
+        "词包B": [
             ["Prism", "Forge", "Nexus", "Pulse", "Relay", "Shard", "Spire", "Tether", "Vortex", "Warp",
              "Aegis", "Braid", "Crest", "Drift", "Ember", "Flux", "Glyph", "Hinge", "Iris", "Jolt",
              "Lance", "Mosaic", "Nebula", "Omen", "Pivot", "Quartz", "Ridge", "Surge", "Thorn", "Umbra"],
@@ -101,7 +102,7 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
              "Lazy", "Local", "Mutable", "Nested", "Opaque", "Prime", "Quiet", "Static", "Typed", "Ultra",
              "Volatile", "Weak", "Xeno", "Yielded", "Zoned", "Atomic", "Binary", "Coarse", "Direct", "Exact"],
         ],
-        "frezz": [
+        "词包C": [
             ["Bridge", "Stone", "Pulse", "Forge", "Vault", "Crest", "Arrow", "Ember", "Prism", "Bloom",
              "Drift", "Shard", "Comet", "Flare", "Haven", "Nexus", "Quartz", "Ridge", "Spire", "Thorn",
              "Vortex", "Amber", "Coral", "Epoch", "Fable", "Glyph", "Harbor", "Ivory", "Jasper", "Lancer"],
@@ -112,7 +113,7 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
              "Smart", "Rapid", "Prime", "Elite", "Ultra", "Turbo", "Micro", "Macro", "Hyper", "Fiber",
              "Pixel", "Cubic", "Polar", "Sonic", "Lunar", "Solar", "Terra", "Cyber", "Neon", "Atlas"],
         ],
-        "PebbleSeeQ": [
+        "词包D": [
             ["Orbit", "Tide", "Spark", "Anvil", "Beacon", "Chisel", "Dusk", "Flint", "Gale", "Hearth",
              "Knot", "Loom", "Mist", "Onyx", "Pine", "Quill", "Rune", "Silk", "Torch", "Umbra",
              "Veil", "Wren", "Zephyr", "Aspen", "Bolt", "Clay", "Dawn", "Fern", "Grit", "Halo"],
@@ -185,13 +186,13 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
         )
 
         // 占位提示：前缀因项目而异，不由预设写入
-        oldPrefixesField.placeholderString = "如 QIF,QC（项目原有，逗号分隔）"
-        newPrefixesField.placeholderString = "如 VEH（混淆后；全量时通常与旧前缀相同）"
+        oldPrefixesField.placeholderString = "如 ABC,DEF（项目原有，逗号分隔）"
+        newPrefixesField.placeholderString = "如 XYZ（混淆后；全量时通常与旧前缀相同）"
         mapsDirField.placeholderString = "mapping JSON 保存目录（非混淆目标）"
         targetFolderField.placeholderString = "要混淆的子目录；可空=整个 project_path；回滚无用"
 
-        // 默认词包：HeyLens（与 Rename_merged.py 当前默认一致）
-        loadWordPack(named: "HeyLens")
+        // 默认词包：词包A（通用词风，与具体工程无关）
+        loadWordPack(named: "词包A")
         updateModeDependentControls()
     }
 
@@ -292,7 +293,7 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
         wordPackLabel = wpLabel
         wordPackPopup.removeAllItems()
         wordPackPopup.addItems(withTitles: Self.wordPackOrder)
-        wordPackPopup.selectItem(withTitle: "HeyLens")
+        wordPackPopup.selectItem(withTitle: "词包A")
         wordPackPopup.target = self
         wordPackPopup.action = #selector(onWordPackChanged)
         packRow.addArrangedSubview(wpLabel)
@@ -434,6 +435,22 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
         // 让底部区域吃掉剩余纵向空间
         root.setCustomSpacing(12, after: actions)
         split.setContentHuggingPriority(.defaultLow, for: .vertical)
+
+        // 页脚：使用说明固定在窗口右下角
+        helpButton.target = self
+        helpButton.action = #selector(onOpenHelp)
+        helpButton.bezelStyle = .rounded
+        helpButton.setContentHuggingPriority(.required, for: .horizontal)
+        let footer = NSStackView()
+        footer.orientation = .horizontal
+        footer.spacing = 8
+        let footerSpacer = NSView()
+        footerSpacer.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        footerSpacer.setContentCompressionResistancePriority(.fittingSizeCompression, for: .horizontal)
+        footer.addArrangedSubview(footerSpacer)
+        footer.addArrangedSubview(helpButton)
+        root.addArrangedSubview(footer)
+        root.setCustomSpacing(8, after: split)
     }
 
     private func sectionTitle(_ text: String) -> NSView {
@@ -506,24 +523,31 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
     }
 
     private func resolveDefaultScriptPath() {
+        let fm = FileManager.default
+        let current = scriptPathField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        // 已保存且仍有效（排除 DerivedData 临时产物）则沿用
+        if !current.isEmpty, fm.fileExists(atPath: current), !current.contains("/DerivedData/") {
+            return
+        }
+
+        // 优先 App 包内脚本（DMG /Applications 分发），再回退到源码树 Scripts/
         let sourceTreeScript = URL(fileURLWithPath: #file)
             .deletingLastPathComponent() // RenameTool
             .deletingLastPathComponent() // ObfuscationTool
             .appendingPathComponent("Scripts/Rename_merged.py").path
 
-        // 若已保存路径失效（例如指到 DerivedData），自动纠正
-        let current = scriptPathField.stringValue
-        if !current.isEmpty, FileManager.default.fileExists(atPath: current), !current.contains("/DerivedData/") {
-            return
+        var candidates: [String] = []
+        if let res = Bundle.main.resourceURL {
+            candidates.append(res.appendingPathComponent("Rename_merged.py").path)
+            candidates.append(res.appendingPathComponent("Scripts/Rename_merged.py").path)
         }
+        candidates.append(Bundle.main.bundlePath + "/Contents/Resources/Rename_merged.py")
+        candidates.append(Bundle.main.bundlePath + "/Contents/Resources/Scripts/Rename_merged.py")
+        candidates.append(sourceTreeScript)
 
-        let candidates: [String] = [
-            sourceTreeScript,
-            Bundle.main.bundlePath + "/Contents/Resources/Rename_merged.py",
-            (Bundle.main.resourceURL?.appendingPathComponent("Rename_merged.py").path) ?? "",
-        ]
         for c in candidates where !c.isEmpty {
-            if FileManager.default.fileExists(atPath: c) {
+            if fm.fileExists(atPath: c) {
                 scriptPathField.stringValue = c
                 defaults.set(c, forKey: "script_path")
                 return
@@ -871,6 +895,40 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
         let maps = mapsDirField.stringValue
         guard !maps.isEmpty else { return alert("maps_dir 为空") }
         NSWorkspace.shared.open(URL(fileURLWithPath: maps))
+    }
+
+    @objc private func onOpenHelp() {
+        let fm = FileManager.default
+        let resourceName = "RenameTool-使用说明"
+        var candidates: [URL] = []
+        if let bundled = Bundle.main.url(forResource: resourceName, withExtension: "html") {
+            candidates.append(bundled)
+        }
+        // Dev / adjacent fallbacks (no project-specific paths)
+        let appDir = Bundle.main.bundleURL.deletingLastPathComponent()
+        candidates.append(appDir.appendingPathComponent("RenameTool-使用说明.html"))
+        candidates.append(appDir.deletingLastPathComponent().appendingPathComponent("RenameTool-使用说明.html"))
+        // Source-tree style: …/ObfuscationTool/RenameTool.app → sibling HTML
+        candidates.append(Bundle.main.bundleURL
+            .deletingLastPathComponent() // …/ObfuscationTool or …/Applications
+            .appendingPathComponent("RenameTool-使用说明.html"))
+        if let resourceDir = Bundle.main.resourceURL {
+            candidates.append(resourceDir.appendingPathComponent("RenameTool-使用说明.html"))
+        }
+        // Walking up from #file when running from Xcode
+        let fromSource = URL(fileURLWithPath: #file)
+            .deletingLastPathComponent() // RenameTool/
+            .deletingLastPathComponent() // ObfuscationTool/
+            .appendingPathComponent("RenameTool-使用说明.html")
+        candidates.append(fromSource)
+
+        for url in candidates {
+            if fm.fileExists(atPath: url.path) {
+                NSWorkspace.shared.open(url)
+                return
+            }
+        }
+        alert("未找到使用说明（RenameTool-使用说明.html）")
     }
 
     @objc private func onRefreshMapping() {
