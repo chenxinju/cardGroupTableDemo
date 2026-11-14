@@ -106,14 +106,49 @@ TASK_CONFIGS_RAW = [
 
 ]
 
-def guess_pbxproj_path(project_path):
+def _iter_xcodeproj_pbx(dirpath, max_depth=0):
+    """在 dirpath 下查找 *.xcodeproj/project.pbxproj，跳过 Pods/Packages 等依赖目录。"""
+    skip_names = {'.git', 'pods', 'packages', 'node_modules', 'build', 'deriveddata', '.build'}
+    found = []
+    if not dirpath or not os.path.isdir(dirpath):
+        return found
+
+    def _walk(current, depth):
+        try:
+            entries = os.listdir(current)
+        except OSError:
+            return
+        for name in entries:
+            if name.endswith('.xcodeproj'):
+                pbx = os.path.join(current, name, 'project.pbxproj')
+                if os.path.isfile(pbx):
+                    found.append(pbx)
+        if depth >= max_depth:
+            return
+        for name in entries:
+            if name.endswith('.xcodeproj') or name.startswith('.'):
+                continue
+            if name.lower() in skip_names:
+                continue
+            child = os.path.join(current, name)
+            if os.path.isdir(child):
+                _walk(child, depth + 1)
+
+    _walk(dirpath, 0)
+    return found
+
+
+def guess_pbxproj_path(project_path, fallback_path=None):
     """从 project_path 推导 project.pbxproj。
 
     project_path 常见为:
       .../AppName/Sources  →  .../AppName.xcodeproj/project.pbxproj
       .../AppName          →  .../AppName/AppName.xcodeproj/... 或旁侧 AppName.xcodeproj
+    工程名与文件夹名不一致时（如 CEO-Band/Leband.xcodeproj），会在目录内扫描 *.xcodeproj。
     切勿用 basename(project_path) 直接拼 Sources.xcodeproj（会指向不存在的路径）。
     """
+    if not project_path and fallback_path:
+        project_path = fallback_path
     if not project_path:
         return ''
     root = os.path.abspath(project_path.rstrip('/'))
@@ -132,6 +167,14 @@ def guess_pbxproj_path(project_path):
         os.path.join(parent, base + '.xcodeproj', 'project.pbxproj'),
         os.path.join(grand, parent_name + '.xcodeproj', 'project.pbxproj'),
     ])
+    # 文件夹名与 .xcodeproj 名不一致时，扫描当前目录及旁侧（不深入 parent 的兄弟工程）
+    candidates.extend(_iter_xcodeproj_pbx(root, max_depth=2))
+    candidates.extend(_iter_xcodeproj_pbx(parent, max_depth=0))
+    if fallback_path:
+        fb = os.path.abspath(fallback_path.rstrip('/'))
+        if fb != root:
+            candidates.extend(_iter_xcodeproj_pbx(fb, max_depth=2))
+            candidates.extend(_iter_xcodeproj_pbx(os.path.dirname(fb), max_depth=0))
     # de-dupe preserve order
     seen = set()
     uniq = []
@@ -145,26 +188,65 @@ def guess_pbxproj_path(project_path):
     return uniq[0] if uniq else ''
 
 
+def _safe_mapping_name_part(raw, fallback='unnamed'):
+    """文件名分段：保留中文和连字符，去掉路径与非法字符。"""
+    text = (raw or '').strip().replace(' ', '_')
+    text = re.sub(r'[\\/:*?"<>|]', '_', text)
+    text = re.sub('[\x00-\x1f]', '_', text)
+    text = text.strip('._')
+    return text or fallback
+
+
+def make_mapping_filename(project_path, task_name, now=None):
+    """生成便于区分的 mapping 文件名：项目名_任务名_YYYYMMDD_HHMMSS.json"""
+    project_name = _safe_mapping_name_part(os.path.basename((project_path or '').rstrip('/\\')), 'project')
+    task = _safe_mapping_name_part(task_name, 'unnamed')
+    timestamp = (now or datetime.now()).strftime('%Y%m%d_%H%M%S')
+    return f"{project_name}_{task}_{timestamp}.json"
+
+
+def get_mapping_file_path(task_config):
+    """根据项目路径、任务名和时间戳生成映射文件路径，写入 maps_dir。"""
+    maps_dir = (task_config.get('maps_dir') or PROJECT_CONFIG.get('maps_dir') or '').strip()
+    if not maps_dir:
+        maps_dir = os.path.dirname(__file__)
+    return os.path.join(maps_dir, make_mapping_filename(
+        task_config.get('project_path', ''),
+        task_config.get('name', 'unnamed'),
+    ))
+
+
 def _build_task_configs():
     """将简化配置展开为完整任务配置，自动推导重复字段"""
     project_path = PROJECT_CONFIG['project_path']
     maps_dir     = PROJECT_CONFIG['maps_dir']
-    pbxproj_path = guess_pbxproj_path(project_path)
+    pbxproj_path = guess_pbxproj_path(
+        project_path,
+        fallback_path=PROJECT_CONFIG.get('target_folder') or '',
+    )
     configs = []
     for raw in TASK_CONFIGS_RAW:
         task = {**TASK_DEFAULTS, **raw}
         task.setdefault('project_path', project_path)
         # 空字符串也算「未指定」，避免 GUI 漏填时 setdefault 写死错误路径
         if not (task.get('pbxproj_path') or '').strip():
-            task['pbxproj_path'] = pbxproj_path
+            task_guess = guess_pbxproj_path(
+                task.get('project_path') or project_path,
+                fallback_path=task.get('target_folder') or '',
+            )
+            task['pbxproj_path'] = task_guess or pbxproj_path
         else:
             task.setdefault('pbxproj_path', pbxproj_path)
         if not task.get('output_mapping_file'):
-            name_slug = re.sub(r'[^a-zA-Z0-9]+', '_', task['name']).lower()
-            task['output_mapping_file'] = os.path.join(maps_dir, f'{name_slug}_mapping.json')
-        # input 默认与 output 指向同一文件：首次运行文件不存在自动跳过，后续运行自动读取并合并
-        task.setdefault('input_mapping_file', task['output_mapping_file'])
-        task.setdefault('rollback_mapping_file', task['output_mapping_file'])
+            task['output_mapping_file'] = os.path.join(
+                maps_dir,
+                make_mapping_filename(
+                    task.get('project_path') or project_path,
+                    task.get('name', 'unnamed'),
+                ),
+            )
+        # input / rollback 不再默认指向本次带时间戳的新文件，避免覆盖历史 mapping。
+        # 复用或回滚请显式指定已有 json。
         configs.append(task)
 
     # 自动前缀继承：
@@ -455,14 +537,6 @@ def update_task_file_headers(task_config):
 
 # ==================== JSON映射文件管理 ====================
 
-def get_mapping_file_path(task_config):
-    """根据项目路径生成映射文件名"""
-    project_name = os.path.basename(task_config['project_path'].rstrip('/'))
-    task_name = task_config.get('name', 'unnamed').replace(' ', '_')
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    mapping_filename = f"{project_name}_{task_name}_{timestamp}.json"
-    return os.path.join(os.path.dirname(__file__), mapping_filename)
-
 def save_mapping_to_json(mapping_dict, mapping_file, task_config):
     """保存映射关系到JSON文件"""
     mapping_data = {
@@ -641,7 +715,7 @@ def rollback_from_mapping(mapping_file, task_config):
     elif cfg_project:
         # GUI 指定了新工程树时，不要沿用 JSON 里旧工程的 pbxproj；
         # 且忽略 _build_task_configs 可能误填的不存在路径（如 Sources.xcodeproj）
-        saved_pbxproj_path = guess_pbxproj_path(cfg_project)
+        saved_pbxproj_path = guess_pbxproj_path(cfg_project, fallback_path=task_config.get('target_folder') or '')
         if cfg_pbx and cfg_pbx != saved_pbxproj_path:
             print(f"⚠️ 配置中的 pbxproj 不存在或不可用: {cfg_pbx}")
             print(f"ℹ️ 已改用自动推导: {saved_pbxproj_path}")
@@ -649,7 +723,7 @@ def rollback_from_mapping(mapping_file, task_config):
         if json_pbx and os.path.exists(json_pbx):
             saved_pbxproj_path = json_pbx
         else:
-            saved_pbxproj_path = guess_pbxproj_path(saved_project_path)
+            saved_pbxproj_path = guess_pbxproj_path(saved_project_path, fallback_path=task_config.get('target_folder') or mapping_data.get('target_folder') or '')
 
     if json_project and cfg_project and os.path.abspath(json_project) != os.path.abspath(cfg_project):
         print(f"ℹ️ mapping 内原路径: {json_project}")
@@ -1103,9 +1177,15 @@ def main(task_config):
     target_folder = task_config['target_folder']
     pbxproj_path = (task_config.get('pbxproj_path') or '').strip()
     if not pbxproj_path or not os.path.exists(pbxproj_path):
-        guessed = guess_pbxproj_path(task_config.get('project_path') or '')
+        guessed = guess_pbxproj_path(
+            task_config.get('project_path') or '',
+            fallback_path=task_config.get('target_folder') or '',
+        )
         if guessed and guessed != pbxproj_path:
             print(f'⚠️ pbxproj 无效: {pbxproj_path or "(空)"} → 改用 {guessed}')
+        if guessed and not os.path.exists(guessed):
+            print(f'⚠️ 未找到可用的 project.pbxproj（已尝试: {guessed}）')
+            print('   请在工具中手动指定 pbxproj，或将工程目录指到 .xcodeproj 所在位置')
         pbxproj_path = guessed
         task_config['pbxproj_path'] = pbxproj_path
     
@@ -1244,7 +1324,7 @@ def main(task_config):
     # 更新 project.pbxproj
     print(f"\n🔧 更新 project.pbxproj...")
     try:
-        if os.path.exists(pbxproj_path):
+        if pbxproj_path and os.path.exists(pbxproj_path):
             with open(pbxproj_path, 'r', encoding='utf-8') as f:
                 pbx_content = f.read()
             
@@ -1261,6 +1341,11 @@ def main(task_config):
                 with open(pbxproj_path, 'w', encoding='utf-8') as f:
                     f.write(pbx_content)
                 print("✅ project.pbxproj 更新完成")
+            else:
+                print("ℹ️ project.pbxproj 中未发现需更新的文件名引用")
+        else:
+            print(f"⚠️ project.pbxproj 不存在，已跳过工程引用同步: {pbxproj_path or '(空)'}")
+            print("   否则 Xcode 会显示红字文件，需要手动指定 pbxproj 后再同步")
     
     except Exception as e:
         print(f"❌ project.pbxproj 更新失败: {e}")

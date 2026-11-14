@@ -360,7 +360,7 @@
     <li><code>maps_dir</code> 选独立目录存放 mapping（勿与源码混放）。</li>
     <li>需限定范围时填 <code>target_folder</code>；否则留空。<code>pbxproj</code> 不确定则留空。</li>
     <li>预设选 ①（换前缀）或 ②/③（全量）；填好前缀或前后缀 + 词包。</li>
-    <li>执行。查看窗口下方日志；确认 <code>maps_dir</code> 中新生成的 Mapping JSON（回滚需用）。</li>
+    <li>执行。查看窗口下方日志；<code>maps_dir</code> 会生成 <code>项目名_任务名_年月日_时分秒.json</code>（例如 <code>Sources_任务1-全局模块_20260818_163921.json</code>），每次运行单独一份，回滚时选对应那份。</li>
     <li>回 Xcode 编译目标工程。若报错：关闭工程后重开；勿手动批量重新添加文件。</li>
   </ol>
 
@@ -378,7 +378,7 @@
   <h2>注意</h2>
   <ul>
     <li>前缀因项目而异，预设不填具体前缀。</li>
-    <li><code>maps_dir</code> 是写出目录；回滚 / 复用依赖 <strong>Mapping JSON</strong> 指向的具体文件。<code>target_folder</code> 回滚时不用。</li>
+    <li><code>maps_dir</code> 是写出目录；文件名含项目名、任务名和时间，不会覆盖上一次的结果。回滚 / 复用请在 <strong>Mapping JSON</strong> 中选对应那份。<code>target_folder</code> 回滚时不用。</li>
     <li>多步回滚必须逆序，否则映射可能对不上。</li>
     <li>日志与 Mapping 结果在窗口下方，可拉宽查看。</li>
     <li>多阶段连跑未实现：请分步手动，或使用 CLI JSON。</li>

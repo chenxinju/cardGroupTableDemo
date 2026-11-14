@@ -806,10 +806,7 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
         if !mappingFile.isEmpty {
             task["rollback_mapping_file"] = mappingFile
             task["input_mapping_file"] = mappingFile
-            // 未单独指定 output 时，复用同一文件路径，便于回滚后写回
-            if task["output_mapping_file"] == nil {
-                task["output_mapping_file"] = mappingFile
-            }
+            // 混淆输出使用带时间戳的新文件，不覆盖已选的历史 mapping
         }
 
         var config: [String: Any] = [
@@ -931,18 +928,23 @@ final class MainViewController: NSViewController, NSTableViewDataSource, NSTable
         alert("未找到使用说明（RenameTool-使用说明.html）")
     }
 
-    @objc private func onRefreshMapping() {
+        @objc private func onRefreshMapping() {
         let maps = mapsDirField.stringValue
-        let name = taskNameField.stringValue.isEmpty ? "Task1" : taskNameField.stringValue
-        let slug = name.lowercased().replacingOccurrences(of: "[^a-z0-9]+", with: "_", options: .regularExpression)
-        let preferred = (maps as NSString).appendingPathComponent("\(slug)_mapping.json")
-
         var fileToLoad: String?
-        if FileManager.default.fileExists(atPath: preferred) {
-            fileToLoad = preferred
-        } else if let files = try? FileManager.default.contentsOfDirectory(atPath: maps) {
-            let jsons = files.filter { $0.hasSuffix("_mapping.json") || $0.hasSuffix(".json") }.sorted()
-            fileToLoad = jsons.last.map { (maps as NSString).appendingPathComponent($0) }
+        let selected = mappingFileField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !selected.isEmpty, FileManager.default.fileExists(atPath: selected) {
+            fileToLoad = selected
+        } else if !maps.isEmpty, let files = try? FileManager.default.contentsOfDirectory(atPath: maps) {
+            let newest = files
+                .filter { $0.lowercased().hasSuffix(".json") }
+                .map { (maps as NSString).appendingPathComponent($0) }
+                .compactMap { path -> (String, Date)? in
+                    let attrs = try? FileManager.default.attributesOfItem(atPath: path)
+                    guard let date = attrs?[.modificationDate] as? Date else { return nil }
+                    return (path, date)
+                }
+                .max(by: { $0.1 < $1.1 })
+            fileToLoad = newest?.0
         }
 
         guard let path = fileToLoad, let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
